@@ -55,12 +55,13 @@ run_tests({
 })
 
 # Group the data by work_tools, summarise the counts, and arrange in descending order
-tool_count <- ....  %>% 
-    group_by(....)  %>% 
+tool_count <- tools  %>% 
+    group_by(work_tools)  %>% summarise(count=n()) %>% arrange(desc(count))
     #.... YOUR CODE FOR TASK 3 .... 
     
 # Print the first 6 results
 #.... YOUR CODE FOR TASK 3 ....
+head(tool_count,6)
 
 run_tests({
     test_that("Tools were Grouped and Summarised", {
