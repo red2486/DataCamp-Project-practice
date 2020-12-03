@@ -77,9 +77,9 @@ run_tests({
 })
 
 # Create a bar chart of the work_tools column, most counts on the far right
-ggplot(....) + 
-    geom_bar(....) +
-    theme(axis.text.x = ....)
+ggplot(data=tool_count, aes(x=fct_reorder(work_tools,count),y=count)) + 
+    geom_bar(stat = "identity") +
+    theme(axis.text.x = element_text(angle =90,vjust =0.5,hjust=1))
 
 run_tests({
    test_that("Plot is a bar chart",{
